@@ -48,7 +48,7 @@ while (True){
         echo "The host is unable to be reached, Attempt # ";
         $x++;
         echo $x;
-        if($x < 20){
+        if($x < 120){
             continue;
         }
         $mail->Subject = 'host has gone offline';
