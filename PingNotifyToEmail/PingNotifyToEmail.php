@@ -44,7 +44,7 @@ while (True){
     $lost = substr($outputLineList[3], 1,2);                    #Grabs first letter in the third array of the ping result
     print_r($output);
 
-    if((int)$lost >= 1 || $unreachable || $timeOut){            #1 packet is lost, the destination is unreachable or timed out send email after 20 attempts
+    if((int)$lost >= 1 || $unreachable || $timeOut){            #1 packet is lost, the destination is unreachable or timed out send email after 120 attempts
         echo "The host is unable to be reached, Attempt # ";
         $x++;
         echo $x;
