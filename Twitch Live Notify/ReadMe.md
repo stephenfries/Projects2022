@@ -2,7 +2,7 @@
 Uses Python 3+ and Twitch API 
 
 ## Program
-Connects to Twitch.tv API using the Developer Console
+Connects to Twitch.tv API using the Developer Console<br />
 You can enter any streamer's name inside the streamer_name variable:<br />
 This will print out a message if the user is online or offline. <br />
 
