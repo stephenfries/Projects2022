@@ -9,7 +9,7 @@
 ## PROGRAM
 Checks if a user has started a stream and posts the information to discord <br />
 Displays: Stream URL / Game Stream is Playing / Title of the Stream.
-![Imgur](https://imgur.com/Hl9nETw)
+![Imgur](i.imgur.com/Hl9nETw.png)
 
 ## Dependencies Installation
 * Open Command Prompt
