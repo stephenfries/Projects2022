@@ -70,6 +70,6 @@ Displays Stream URL / Game Stream is Playing / Title of the Stream.
 * Save streamName.env
 
 
-<center>## RUN THE PROGRAM AND ENJOY! </center>
+<center> <h2>RUN THE PROGRAM AND ENJOY!</h2> </center>
 
 
