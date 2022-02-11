@@ -9,7 +9,7 @@
 ## PROGRAM
 Checks if a user has started a stream and posts the information to discord <br />
 Displays: Stream URL / Game Stream is Playing / Title of the Stream.
-[Imgur](https://imgur.com/Hl9nETw)
+<blockquote class="imgur-embed-pub" lang="en" data-id="Hl9nETw"><a href="https://imgur.com/Hl9nETw">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ## Dependencies Installation
 * Open Command Prompt
