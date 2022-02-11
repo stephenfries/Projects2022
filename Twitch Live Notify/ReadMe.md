@@ -9,7 +9,8 @@
 ## PROGRAM
 Checks if a user has started a stream and posts the information to discord <br />
 Displays: Stream URL / Game Stream is Playing / Title of the Stream.
-<a href="https://i.imgur.com/Hl9nETw.png">
+[img]https://i.imgur.com/Hl9nETw.png[/img]
+
 ## Dependencies Installation
 * Open Command Prompt
 * pip install discord.py
