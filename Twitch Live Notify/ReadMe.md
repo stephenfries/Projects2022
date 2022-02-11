@@ -1,8 +1,8 @@
 # Twitch Live Notify - Discord Bot
 * Uses Python 3+ 
-** discord.py 
-** python-dotenv
-** requests
+    * discord.py 
+    * python-dotenv
+    * requests
 * Twitch API 
 * Discord API
 
