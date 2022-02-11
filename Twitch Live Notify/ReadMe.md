@@ -8,7 +8,7 @@
 
 ## PROGRAM
 Checks if a user has started a stream and posts the information to discord <br />
-Displays: Stream URL / Game Stream is Playing / Title of the Stream.
+Displays Stream URL / Game Stream is Playing / Title of the Stream.
 ![Imgur](https://imgur.com/Hl9nETw.jpg)
 
 ## Dependencies Installation
@@ -70,6 +70,6 @@ Displays: Stream URL / Game Stream is Playing / Title of the Stream.
 * Save streamName.env
 
 
-## RUN THE PROGRAM AND ENJOY!
+<center>## RUN THE PROGRAM AND ENJOY! </center>
 
 
