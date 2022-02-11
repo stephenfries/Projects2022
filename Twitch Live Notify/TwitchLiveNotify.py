@@ -42,7 +42,7 @@ def checkOnline(stream_data):
         stream_data = stream.json()
         return stream_data
                                                                                       
-########### DISCORD BOT SETUP ############                                                  # https://betterprogramming.pub/coding-a-discord-bot-with-python-64da9d6cade7
+########### DISCORD BOT SETUP ############                                                  
 load_dotenv('token.env')                                                                    # https://discordpy.readthedocs.io/en/latest/api.html#message   DISCORD API
 token = os.getenv('DISCORD_TOKEN')                                                          # https://discord.com/developers/applications DISCORD APP TOKEN
 bot = commands.Bot(command_prefix='!')                                                      #     ^     Go to Bot (Left Hand Side) to edit      ^
