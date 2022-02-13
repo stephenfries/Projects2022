@@ -1,7 +1,7 @@
 from asyncio import streams
-import os, requests, time                                                                   #               IMPORTS TO ALLOW FOR DISCORD/TWITCH API                     #
-from dotenv import load_dotenv                                                              #           dotenv allows loading hidden files for secrets                  #
-from discord.ext import commands                                                            # pip install discord.py | pip install python-dotenv | pip install requests #
+import os, requests, time                                                                   #                               IMPORTS TO ALLOW FOR DISCORD/TWITCH API                            #
+from dotenv import load_dotenv                                                              #                           dotenv allows loading hidden files for secrets                         #
+from discord.ext import commands                                                            # pip install discord.py | pip install python-dotenv | pip install requests  | pip install asyncio #
 
 load_dotenv('config.env')
 id = os.getenv('client_id')                                                                 # Loads Client ID, Client Secret and Streamer's Name
