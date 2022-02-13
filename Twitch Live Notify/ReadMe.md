@@ -58,7 +58,7 @@ Displays Stream URL / Game Stream is Playing / Title of the Stream.
 * Replace "**TypeYourClientSecretHere**" with your **Twitch Client Secret** you copied in the text file - make sure you don't remove the "**client_secret=**"
 * Replace "**TypeDiscordChannelIDHere**" with your **Discord Channel Numbers** you copied in the text file - make sure you don't remove the "**channel_id=**"
 * Replace "**TypeDiscordTokenHere**" with your **discord token** you copied in the text file - make sure you don't remove the "**discord_token=**"
-* Replace "**TypeStreamerNameHere**" with a **Twitch Streamer Username** <br />(separate multiple with a comma and no space after - example:stream_name=shroud,summit1g,etc) - make sure you don't remove the "**stream_name=**"
+* Replace "**TypeStreamerNameHere**" with a **Twitch Streamer Username** <br />(separate multiple with a comma and no space after - example: stream_name=shroud,summit1g,etc) - make sure you don't remove the "**stream_name=**"
 * Save **config.env**
 
 
