@@ -3,6 +3,7 @@
     * discord.py 
     * python-dotenv
     * requests
+    * asyncio
 * Twitch API 
 * Discord API
 
@@ -16,6 +17,7 @@ Displays Stream URL / Game Stream is Playing / Title of the Stream.
 * pip install discord.py
 * pip install python-dotenv
 * pip install requests
+* pip install asyncio
 
 ## HOW TO USE
 ### FIRST WE MUST CREATE A DISCORD BOT
