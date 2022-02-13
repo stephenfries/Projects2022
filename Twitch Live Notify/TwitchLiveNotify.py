@@ -63,7 +63,7 @@ async def on_ready():
     while True: 
         checkOnline(stream_data)                                                        
         
-        channel = bot.get_channel(id=channelid)                                         # YOU CAN GET CHANNEL ID INSIDE DISCORD BY TYPING: \#channel
+        channel = bot.get_channel(id=int(channelid))                                         # YOU CAN GET CHANNEL ID INSIDE DISCORD BY TYPING: \#channel
                                                                                         #                                             (ex. \#general)
         if stream_data['data'] == []:
             print('user is offline')
