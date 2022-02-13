@@ -1,7 +1,7 @@
 from asyncio import streams
 import os, requests, time                                              #                               IMPORTS TO ALLOW FOR DISCORD/TWITCH API                            #
-from dotenv import load_dotenv                                         #                           dotenv allows loading hidden files for secrets                         #
-from discord.ext import commands                                       # pip install discord.py | pip install python-dotenv | pip install requests  | pip install asyncio #
+from dotenv import load_dotenv                                         # pip install discord.py | pip install python-dotenv | pip install requests  | pip install asyncio #
+from discord.ext import commands                                       
 
 load_dotenv('config.env')
 id = os.getenv('client_id')                                                                 # Loads Client ID, Client Secret and Streamer's Name
@@ -11,7 +11,7 @@ channelID = os.getenv('channel_id')
 
 client_id =  id                                                                             # Info From https://dev.twitch.tv/console/apps
 client_secret = secret                                                                      # Click manage app - ID and Secret are inside there
-streamer_name = name.split(',')                                                                        # user you want to check if online (ex. 'shroud')
+streamer_name = name.split(',')                                                             # separate multiple users with comma (shroud,summit1g,etc)
 print(streamer_name)
 body = {
     'client_id': client_id,
