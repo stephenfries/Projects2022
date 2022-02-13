@@ -50,7 +50,7 @@ Displays Stream URL / Game Stream is Playing / Title of the Stream.
 
 ## GET YOUR CHANNEL ID
 * Quickest and Easiest Way is to go to your Discord Server
-* type backslash and your discord channel name. (For example: **\#general**)
+* type backslash and your discord channel name. (For example: **\\#general**)
 * Copy the numbers into the text file with your discord token, twitch client id, and secret
 
 ## CHANGING .ENV FILES TO YOUR SETTINGS
