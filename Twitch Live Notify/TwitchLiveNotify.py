@@ -61,7 +61,7 @@ async def on_ready():
     print(offlineStatus)                                                                        # SHOWS WHO IS CURRENTLY ONLINE / OFFLINE                                                
     while True: 
             for streamers in streamer_name:
-                checkOnline(streamers)                                                          # https://stackoverflow.com/questions/28492865/accessing-nested-values-in-json-data-from-twitch-api
+                checkOnline(streamers)                                                         
                 channel = bot.get_channel(id=int(channelID))                                    # YOU CAN GET CHANNEL ID INSIDE DISCORD BY TYPING: \#channel
                 if checkStatus <= len(list(streamer_name)):                                     #                                             (ex. \#general)
                     if checkOnline(streamers) == {'data': [], 'pagination': {}}:
