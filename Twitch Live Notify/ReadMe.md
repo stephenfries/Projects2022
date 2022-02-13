@@ -53,21 +53,13 @@ Displays Stream URL / Game Stream is Playing / Title of the Stream.
 
 ## CHANGING .ENV FILES TO YOUR SETTINGS
 * Go inside the "**Twitch Live Notify**" Folder
-* Right-Click **token.env** and click "**edit**" or open with notepad
-* Replace "**TypeDiscordTokenHere**" with your **discord token** you copied in the text file - make sure you don't remove the "**DISCORD_TOKEN=**"
-* Save **token.env**
-* Right-Click **clientID.env** and click "**edit**" or open with notepad
+* Right-Click **config.env** and click "**edit**" or open with notepad
 * Replace "**TypeYourClientIDHere**" with your **Twitch Client ID** you copied in the text file - make sure you don't remove the "**client_id=**"
-* Save **clientID.env**
-* Right-Click **clientSecret.env** and click "**edit**" or open with notepad
 * Replace "**TypeYourClientSecretHere**" with your **Twitch Client Secret** you copied in the text file - make sure you don't remove the "**client_secret=**"
-* Save **clientSecret.env**
-* Right-Click **channelID.env** and click "**edit**" or open with notepad
 * Replace "**TypeDiscordChannelIDHere**" with your **Discord Channel Numbers** you copied in the text file - make sure you don't remove the "**channel_id=**"
-* Save **channelID.env**
-* Right-Click **streamName.env** and click "**edit**" or open with notepad
+* Replace "**TypeDiscordTokenHere**" with your **discord token** you copied in the text file - make sure you don't remove the "**discord_token=**"
 * Replace "**TypeStreamerNameHere**" with a **Twitch Streamer Username** - make sure you don't remove the "**stream_name=**"
-* Save **streamName.env**
+* Save **config.env**
 
 
 <center> <h2><strong>RUN THE PROGRAM AND ENJOY!</strong></h2> </center>

@@ -1,30 +1,23 @@
- ######## Created By: Stephen Fries, 2/6/22 ########
-######### TWITCH LIVE NOTIFY + DISCORD BOT #########
-
-
+from asyncio import streams
 import os, requests, time                                                                   #               IMPORTS TO ALLOW FOR DISCORD/TWITCH API                     #
 from dotenv import load_dotenv                                                              #           dotenv allows loading hidden files for secrets                  #
 from discord.ext import commands                                                            # pip install discord.py | pip install python-dotenv | pip install requests #
 
-load_dotenv('clientID.env')
-id = os.getenv('client_id')
-load_dotenv('clientSecret.env')                                                             # Loads Client ID, Client Secret and Streamer's Name
+load_dotenv('config.env')
+id = os.getenv('client_id')                                                                 # Loads Client ID, Client Secret and Streamer's Name
 secret = os.getenv('client_secret')
-load_dotenv('streamName.env')
 name = os.getenv('stream_name')
-load_dotenv('channelID.env')
-channelid = os.getenv('channel_id')
+channelID = os.getenv('channel_id')
 
 client_id =  id                                                                             # Info From https://dev.twitch.tv/console/apps
 client_secret = secret                                                                      # Click manage app - ID and Secret are inside there
-streamer_name = name                                                                        
-
+streamer_name = name.split(',')                                                                        # user you want to check if online (ex. 'shroud')
+print(streamer_name)
 body = {
     'client_id': client_id,
     'client_secret': client_secret,
     "grant_type": 'client_credentials'
 }
-
 ######### Returns OAuth token #########
 r = requests.post('https://id.twitch.tv/oauth2/token', body)                               
 keys = r.json()
@@ -32,19 +25,20 @@ keys = r.json()
 ######### Returns Client/Authorization Information #########
 headers = {
     'Client-ID': client_id,
-    'Authorization': 'Bearer ' + keys['access_token']                                       
+    'Authorization': 'Bearer ' + keys['access_token']                                      
 }                                                                                           
 ##### DETERMINES IF USER IS ONLINE BY CHECKING IF DATA IS RETURNED #####
-stream = requests.get('https://api.twitch.tv/helix/streams?user_login=' + streamer_name, headers=headers)
-stream_data = stream.json()
 
-def checkOnline(stream_data):
-        stream_data = stream.json()
-        return stream_data
+def checkOnline(streamers):
+    global headers
+    global stream_data
+    stream = requests.get('https://api.twitch.tv/helix/streams?user_login=' + str(streamers), headers=headers)
+    stream_data = stream.json()
+    return stream_data
                                                                                       
 ########### DISCORD BOT SETUP ############                                                  
-load_dotenv('token.env')                                                                    # https://discordpy.readthedocs.io/en/latest/api.html#message   DISCORD API
-token = os.getenv('DISCORD_TOKEN')                                                          # https://discord.com/developers/applications DISCORD APP TOKEN
+                                                                                            # https://discordpy.readthedocs.io/en/latest/api.html#message   DISCORD API
+token = os.getenv('discord_token')                                                          # https://discord.com/developers/applications DISCORD APP TOKEN
 bot = commands.Bot(command_prefix='!')                                                      #     ^     Go to Bot (Left Hand Side) to edit      ^
 
 ########## ON BOT START UP DISPLAY HOW MANY SERVERS ITS IN ########## 
@@ -58,23 +52,29 @@ async def on_ready():
         serverCount += 1
         print('Twitch Live Notify is in ' + str(serverCount) + ' Servers.')
 
-##### X DETERMINES IF USER IS ONLINE AND STOPS LOOP FROM SPAMMING #####
-    x = 0                                                                               
+##### offlineStatus DETERMINES IF USER IS ONLINE AND checkStatus IS FOR SCALABILITY #####
+    checkStatus = 0
+    offlineStatus = [] 
+    for streamers in streamer_name:
+            streamStatus = {streamers:'offline'}
+            offlineStatus.append(streamStatus)  
+    print(offlineStatus)                                                                        # SHOWS WHO IS CURRENTLY ONLINE / OFFLINE                                                
     while True: 
-        checkOnline(stream_data)                                                        
-        
-        channel = bot.get_channel(id=int(channelid))                                         # YOU CAN GET CHANNEL ID INSIDE DISCORD BY TYPING: \#channel
-                                                                                        #                                             (ex. \#general)
-        if stream_data['data'] == []:
-            print('user is offline')
-            x = 0
-            time.sleep(60)
-            continue
-        elif stream_data['data'] != [] and x == 0:          #DISPLAYS TWITCH LINK, GAME & TITLE
-            await channel.send('https://www.twitch.tv/' + streamer_name + '\nWent *LIVE*  on Twitch (**' \
-            + str(stream_data['data'][0]['game_name']) + '**)\n' + '`'+str(stream_data['data'][0]['title']) + '`' )
-            x = 1
-            time.sleep(60)
-
-
+            for streamers in streamer_name:
+                checkOnline(streamers)                                                          # https://stackoverflow.com/questions/28492865/accessing-nested-values-in-json-data-from-twitch-api
+                channel = bot.get_channel(id=int(channelID))                                    # YOU CAN GET CHANNEL ID INSIDE DISCORD BY TYPING: \#channel
+                if checkStatus <= len(list(streamer_name)):                                     #                                             (ex. \#general)
+                    if checkOnline(streamers) == {'data': [], 'pagination': {}}:
+                        print(streamers + ' is offline')
+                        offlineStatus[checkStatus] = {streamers:'offline'}
+                        checkStatus += 1
+                        continue                                               # v CHANNEL.SEND DISPLAYS TWITCH LINK, GAME & TITLE v
+                    elif checkOnline(streamers) != {'data': [], 'pagination': {}} and offlineStatus[checkStatus] == {streamers:'offline'}:          
+                        await channel.send('https://www.twitch.tv/' + streamers + '\nWent *LIVE*  on Twitch (**' \
+                        + str(stream_data['data'][0]['game_name']) + '**)\n' + '`'+str(stream_data['data'][0]['title']) + '`')
+                        offlineStatus[checkStatus] = {streamers:'online'}
+                        print(streamers + ' is online.')
+                    checkStatus += 1
+            checkStatus = 0
+            time.sleep(30)    
 bot.run(token)
